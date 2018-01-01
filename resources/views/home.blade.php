@@ -26,7 +26,7 @@
                     <td width="20px">{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{!! Form::open(['route' => ['destroyProduct', $item->id, 'method' => 'DELETE']]) !!}
-                    		<a href="#">Eliminar</a>
+                    		<a href="#" class="btn-delete">Eliminar</a>
                     	{!! Form::close() !!}
                     </td>
                     </tr>
