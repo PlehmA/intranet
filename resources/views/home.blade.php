@@ -9,8 +9,9 @@
 
                 <div class="panel-body">
                     <p>
-                    {{ $products->total() }} registros | Página {{ $products->currentPage() }} de {{ $products->lastPage() }}
+                    <span id="products-total">{{ $products->total() }}</span> registros | Página {{ $products->currentPage() }} de {{ $products->lastPage() }}
                     </p>
+                    <div id="alert" class="alert alert-success"></div>
                     <table class="table table-hover table-striped">
                     <thead>
                     <tr>
@@ -24,7 +25,10 @@
                     <tr>
                     <td width="20px">{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
-                    <td></td>
+                    <td>{!! Form::open(['route' => ['destroyProduct', $item->id, 'method' => 'DELETE']]) !!}
+                    		<a href="#">Eliminar</a>
+                    	{!! Form::close() !!}
+                    </td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -35,4 +39,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{ asset('js/script.js') }}"></script>
 @endsection
